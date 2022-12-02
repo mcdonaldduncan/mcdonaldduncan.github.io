@@ -11,64 +11,79 @@
     <a href="./aboutme.html">About Me</a>
 </nav>
 <h1>Release 2 Impact</h1>
-<nav>
-    <ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#levelsystems">Dynamic Level Systems</a></li>
-        <li><a href="#bugfixing">Custom Editors</a></li>
-        <li><a href="#featureadjustment">Feature Adjustments</a></li>
-    </ul>
-</nav>
+
 <div id="overview">
-    <h2>Overview</h2>
-    <p>For release two, our goal as a team focused on enhancing level systems, creating more engaging interactions,
+    <p>For release two, our goals as a team focused on enhancing level systems, creating more engaging interactions,
         and providing more feedback to the player. With another engineer working on feedback,
         I focused heavily on level systems and interactions. Our first priorities for level interactions were basic
         moving platforms and doors/barriers. Although I knew these would be somewhat basic systems, I used this as an
         opportunity to grow my skills. To do this, I built these simple systems into robust, customizable tools that
         allow our designers to easily implement unique features.
     </p>
-    <a href="https://github.com/mcdonaldduncan/Untitled/wiki/Release-1-Impact-%7C-Duncan-McDonald" target="_blank">Check Out Release One!</a>
-    <h3>Species</h3>
-    <ul>
-        <li>Arctos</li>
-        <li>Collarus</li>
-        <li>Horribilis</li>
-        <li>Nelsoni (extinct)</li>
-    </ul>
-    <h3>Features</h3>
-    <p>Brown bears are not always completely brown. Some can be reddish or yellowish. They have very large, curved claws and huge paws. Male brown bears are often 30% larger than female brown bears. They can range from 5 feet to 9 feet from head to toe.</p>
+    <a href="https://github.com/mcdonaldduncan/Untitled/wiki/Release-1-Impact-%7C-Duncan-McDonald"
+       target="_blank">Check out release one impact!
+    </a>
+    <h3>Major Contributions</h3>
+    <nav>
+        <ul>
+            <li><a href="#levelsystems">Dynamic Level Systems</a></li>
+            <li><a href="#editors">Custom Inspectors</a></li>
+        </ul>
+    </nav>
+    <br>
 </div>
 <div id="levelsystems">
-    <h2>Habitat</h2>
-    <h3>Countries with Large Brown Bear Populations</h3>
-    <ol>
-        <li>Russia</li>
-        <li>United States</li>
-        <li>Canada</li>
-    </ol>
-    <h3>Countries with Small Brown Bear Populations</h3>
-    <p>Some countries with smaller brown bear populations include Armenia, Belarus, Bulgaria, China, Finland, France, Greece, India, Japan, Nepal, Poland, Romania, Slovenia, Turkmenistan, and Uzbekistan.</p>
+    <h2>Dynamic Level Systems</h2>
+
+    <h3>Moving Platforms</h3>
+    <p>
+        Moving platforms are easily one of the most simple features to program from a base perspective but my goal with
+        this system was to build a much more feature rich tool than one might expect from a simple moving platform.
+        This was accomplished primarily through the use of custom editor scripts which I go over
+        <a href="#editors">here</a>.
+        <br><br>
+        Given the scope of features I wanted to provide, it was important that the system remained bug free and
+        performant.
+        <br><br>
+        Of course, no task is simple when working in a large project. Challenges arose while building these features
+        and had to be dealt with accordingly.
+    </p>
+    <h4>Translation Options</h4>
+    <p>
+        The primary feature I built into this system is the option to use differing translation types. I started with
+        default linear pathing between nodes but knew it had to be expanded further. In addition to standard linear,
+        the system offers options for damp motion, translation via a steering algorithm, or translation via linear
+        interpolation along an animation curve set in the inspector. Setting up the system in such a way that all of
+        these movement options were valid was one of the more demanding tasks for this work.
+    </p>
+    <h4>Adjusting Player Motion</h4>
+    <p>
+        Most platform systems I have previously designed handle application of platform motion to the player by setting
+        the platform object as a parent of the player object. In many cases, this is an easy and effective way of
+        translating the player in conjunction with the platform. For this project, we designed the character controls
+        using the unity character controller. Due to the interactions behind the scenes there, I was unable to achieve
+        the desired behavior via a parent/child relationship. To overcome this I modified the player to accept an
+        additional vector while calculating motion, this vector is then supplied by any platform that they have made
+        contact with.
+    </p>
+    <br>
+    <h3>Custom Barriers</h3>
+    <p>
+        Some countries with smaller brown bear populations include Armenia, Belarus, Bulgaria, China, Finland, France,
+        Greece, India, Japan, Nepal, Poland, Romania, Slovenia, Turkmenistan, and Uzbekistan.
+    </p>
 </div>
-<div id="bugfixing">
-    <h2>Media</h2>
+<div id="editors">
+    <h2>Custom Inspectors</h2>
     <img src="https://content.codecademy.com/courses/web-101/web101-image_brownbear.jpg" />
-    <video src="https://content.codecademy.com/courses/freelance-1/unit-1/lesson-2/htmlcss1-vid_brown-bear.mp4" height="240" width="320" controls>Video not supported</video>
+    <video src="https://content.codecademy.com/courses/freelance-1/unit-1/lesson-2/htmlcss1-vid_brown-bear.mp4"
+           height="240"
+           width="320"
+           controls>
+        Video not supported
+    </video>
 </div>
-<div id="featureadjustment">
-    <h2>About Brown Bears</h2>
-    <p>The brown bear (<em>Ursus arctos</em>) is native to parts of northern Eurasia and North America. Its conservation status is currently <strong>Least Concern</strong>.<br /><br /> There are many subspecies within the brown bear species, including the
-        Atlas bear and the Himalayan brown bear.</p>
-    <a href="https://en.wikipedia.org/wiki/Brown_bear" target="_blank">Learn More</a>
-    <h3>Species</h3>
-    <ul>
-        <li>Arctos</li>
-        <li>Collarus</li>
-        <li>Horribilis</li>
-        <li>Nelsoni (extinct)</li>
-    </ul>
-    <h3>Features</h3>
-    <p>Brown bears are not always completely brown. Some can be reddish or yellowish. They have very large, curved claws and huge paws. Male brown bears are often 30% larger than female brown bears. They can range from 5 feet to 9 feet from head to toe.</p>
+
 </div>
 </body>
 
