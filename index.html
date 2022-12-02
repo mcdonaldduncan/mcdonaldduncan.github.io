@@ -8,7 +8,7 @@
 <nav>
     <a href="./index.html">Release 2 Impact</a>
 
-    <a href="./aboutme.html">About Me</a>
+
 </nav>
 <h1>Release 2 Impact</h1>
 
@@ -39,7 +39,7 @@
     <p>
         Moving platforms are easily one of the most simple features to program from a base perspective but my goal with
         this system was to build a much more feature rich tool than one might expect from a simple moving platform.
-        This was accomplished primarily through the use of custom editor scripts which I go over
+        This was accomplished primarily through the use of custom inspector scripts which I go over
         <a href="#editors">here</a>.
         <br><br>
         Given the scope of features I wanted to provide, it was important that the system remained bug free and
@@ -69,12 +69,44 @@
     <br>
     <h3>Custom Barriers</h3>
     <p>
-        Some countries with smaller brown bear populations include Armenia, Belarus, Bulgaria, China, Finland, France,
-        Greece, India, Japan, Nepal, Poland, Romania, Slovenia, Turkmenistan, and Uzbekistan.
+        Similar to my approach with moving platforms. I wanted the barrier system to be equally robust and feature rich.
+        Much of this took the form of custom inspector scripts, but I also implemented a few features to simplify the
+        system for both myself and designers.
     </p>
+    <h4>Event Handling</h4>
+    <p>
+        I knew immediately while brainstorming on this that I would be using events to handle communication between the
+        parent object and individual barrier segments. My primary reasoning for this was a desire to avoid storing
+        arrays of barrier segments for each parent GameObject. The use of events makes the system more performant while also
+        providing easy communication between scripts.
+    </p>
+    <h4>Linq Lambda Boolean</h4>
+    <p>
+        Another small but interesting feature was my use of a lambda expression for one of the key boolean variables
+        utilized. Barriers have the potential to be locked with any number of keys, keys can be stored in a key manager
+        inventory, but I needed a quick way to check if a specific door should be unlocked.
+    </p>
+    <br>
 </div>
 <div id="editors">
     <h2>Custom Inspectors</h2>
+    <p>
+        One of my biggest learning moments while working towards this release was my discovery of custom inspector
+        scripts. I had never used them before, but I found them easy to use while providing huge benefits to the
+        customization and usability of these systems.
+    </p>
+    <h4>Object Instantiation</h4>
+    <p>
+        The most prominent feature I included via custom inspector code was the ability to add and remove system objects
+        from the inspector. This added multiple benefits, firstly, no more hunting for the correct prefab when adding
+        segments, nodes, and keys. On top of this, using the inspector callouts to delete objects ensured that they do
+        not persist as null entries in any collections used.
+    </p>
+    <h4>Dynamic Inspector Display</h4>
+    <p>
+
+    </p>
+
     <img src="https://content.codecademy.com/courses/web-101/web101-image_brownbear.jpg" />
     <video src="https://content.codecademy.com/courses/freelance-1/unit-1/lesson-2/htmlcss1-vid_brown-bear.mp4"
            height="240"
@@ -84,7 +116,6 @@
     </video>
 </div>
 
-</div>
 </body>
 
 </html>
