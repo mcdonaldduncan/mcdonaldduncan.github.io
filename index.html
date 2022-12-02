@@ -54,6 +54,23 @@
         interpolation along an animation curve set in the inspector. Setting up the system in such a way that all of
         these movement options were valid was one of the more demanding tasks for this work.
     </p>
+    <p>
+        <p><strong>Linear</strong></p>
+        <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Linear.PNG?raw=true" />
+    </p>
+    <p>
+        <p><strong>Curve</strong></p>
+        <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Curve.PNG?raw=true" />
+    </p>
+    <p>
+        <p><strong>Damp</strong></p>
+        <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Damp.PNG?raw=true" />
+    </p>
+    <p>
+        <p><strong>Steering</strong></p>
+        <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Steering.PNG?raw=true" />
+    </p>
+
     <h4>Adjusting Player Motion</h4>
     <p>
         Most platform systems I have previously designed handle application of platform motion to the player by setting
@@ -63,6 +80,14 @@
         the desired behavior via a parent/child relationship. To overcome this I modified the player to accept an
         additional vector while calculating motion, this vector is then supplied by any platform that they have made
         contact with.
+    </p>
+    <p>
+        <p><strong>Apply Motion</strong></p>
+        <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/PlayerMotion/ApplyMotion.PNG?raw=true" />
+    </p>
+    <p>
+        <p><strong>Consume Motion</strong></p>
+        <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/PlayerMotion/PlayerController.PNG?raw=true" />
     </p>
     <br>
     <h3>Custom Barriers</h3>
@@ -105,10 +130,11 @@
         Another helpful feature I was able to achieve via custom inspector code was a dynamic display for the platform
         inspector. Given the many translation options mentioned earlier, I wanted a way for designers to easily
         differentiate between options that only affect certain movement types. This also allowed me to keep the inspector
-        window from becoming bloated with information.
+        window from becoming bloated with information. I accomplished this via a switch statement that only rendered
+        properties needed for the selected translation state.
     </p>
 
-    <img src="https://content.codecademy.com/courses/web-101/web101-image_brownbear.jpg" />
+
     <video src="https://content.codecademy.com/courses/freelance-1/unit-1/lesson-2/htmlcss1-vid_brown-bear.mp4"
            height="240"
            width="320"
