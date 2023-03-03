@@ -40,12 +40,10 @@
             To process bulk csv and pipe files I created a parser that finds all files of type csv or txt in the target directory. It then processes
             each of them into an equivalent JSON file, saving them to a new out folder in the target directory. Initially, I accomplished this via
             splitting lines of the files by their delimiter. This was a very quick and efficient approach but it did run into problems when csv data
-            had commas within the values. I go over how I handled this edge case
-            <a href="#Edge-Case">here</a>.
+            had commas within the values. I go over how I handled this edge case <a href="#Edge-Case">here</a>.
         </p>
-        <br />
         <p>
-            Once the file had been processed into string arrays, a new file is created and each line is written in as a JSON object
+            Once the file had been processed into string arrays, a new file is created and each line is written in as a JSON object.
 
         <p>
             <strong>Default Read Process</strong>
