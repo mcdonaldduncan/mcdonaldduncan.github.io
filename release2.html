@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Release 2</title>
+    <style>
+        li.nav {
+            display: inline;
+        }
+    </style>
+</head>
+<body style="background-color:#ececec">
+
+
+<nav>
+    <li class="nav"><a href="./index.html">Home</a></li>
+    <li class="nav"><a href="./unitymons.html">Unity Mons</a></li>
+    <li class="nav"><a href="./proj.html">Text to JSON</a></li>
+</nav>
+<h1 style="background-color:#adadad">Release 2 Impact</h1>
+
+<div id="overview" >
+    <p>For release two, our goals as a team focused on enhancing level systems, creating more engaging interactions,
+        and providing more feedback to the player. With another engineer working on feedback,
+        I focused heavily on level systems and interactions. Our first priorities for level interactions were basic
+        moving platforms and doors/barriers. Although I knew these would be somewhat basic systems, I used this as an
+        opportunity to grow my skills. To do this, I built these simple systems into robust, customizable tools that
+        allow our designers to easily implement unique features.
+    </p>
+    <a href="https://github.com/mcdonaldduncan/Untitled/wiki/Release-1-Impact-%7C-Duncan-McDonald"
+       target="_blank">Check out release one impact!
+    </a>
+    <h3>Major Contributions</h3>
+    <nav>
+        <ul>
+            <li><a href="#levelsystems">Dynamic Level Systems</a></li>
+            <li><a href="#editors">Custom Editors</a></li>
+        </ul>
+    </nav>
+    <br>
+</div>
+<div id="levelsystems">
+    <h2 style="background-color:#C6C6C6">Dynamic Level Systems</h2>
+
+    <h3  style="background-color:#e0e0e0">Moving Platforms</h3>
+    <p>
+        Moving platforms are easily one of the most simple features to program from a base perspective but my goal with
+        this system was to build a much more feature rich tool than one might expect from a simple moving platform.
+        This was accomplished primarily through the use of custom inspector scripts which I go over
+        <a href="#editors">here</a>.
+        <br><br>
+        Given the scope of features I wanted to provide, it was important that the system remained bug free and
+        performant.
+        <br><br>
+        Of course, no task is simple when working in a large project. Challenges arose while building these features
+        and had to be dealt with accordingly.
+
+
+    </p>
+    <a href="https://youtu.be/DIU7e5-k3-w" target="_blank">Video - Moving Platforms</a>
+    <h4>Translation Options</h4>
+    <p>
+        The primary feature I built into this system is the option to use differing translation types. I started with
+        default linear pathing between nodes but knew it had to be expanded further. In addition to standard linear,
+        the system offers options for damp motion, translation via a steering algorithm, or translation via linear
+        interpolation along an animation curve set in the inspector. Setting up the system in such a way that all of
+        these movement options were valid was one of the more demanding tasks for this work.
+    </p>
+    <p>
+    <p><strong>Linear</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Linear.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Curve</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Curve.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Damp</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Damp.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Steering</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/TranslationTypes/Steering.PNG?raw=true" />
+    </p>
+
+    <h4>Adjusting Player Motion</h4>
+    <p>
+        Most platform systems I have previously designed handle application of platform motion to the player by setting
+        the platform object as a parent of the player object. In many cases, this is an easy and effective way of
+        translating the player in conjunction with the platform. For this project, we designed the character controls
+        using the unity character controller. Due to the interactions behind the scenes there, I was unable to achieve
+        the desired behavior via a parent/child relationship. To overcome this I modified the player to accept an
+        additional vector while calculating motion, this vector is then supplied by any platform that they have made
+        contact with.
+    </p>
+    <p>
+    <p><strong>Apply Motion</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/PlayerMotion/ApplyMotion.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Consume Motion</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/PlayerMotion/PlayerController.PNG?raw=true" />
+    </p>
+    <br>
+    <h3 style="background-color:#e0e0e0">Custom Barriers</h3>
+    <p>
+        Similar to my approach with moving platforms. I wanted the barrier system to be equally robust and feature rich.
+        Much of this took the form of custom inspector scripts, but I also implemented a few features to simplify the
+        system for both myself and designers.
+
+
+    </p>
+    <a href="https://youtu.be/mtw1PWo97cg" target="_blank">Video - Custom Barriers</a>
+
+    <h4>Event Handling</h4>
+    <p>
+        I knew immediately while brainstorming on this that I would be using events to handle communication between the
+        parent object and individual barrier segments. My primary reasoning for this was a desire to avoid storing
+        arrays of barrier segments for each parent GameObject. The use of events makes the system more performant while also
+        providing easy communication between scripts.
+    </p>
+    <p>
+    <p><strong>Delegate & Events</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Barriers/Events.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Subscriptions</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Barriers/Subscription.PNG?raw=true" />
+    </p>
+
+    <h4>Linq Lambda Boolean</h4>
+    <p>
+        Another small but interesting feature was my use of a lambda expression for one of the key boolean variables
+        utilized. Barriers have the potential to be locked with any number of keys, keys can be stored in a key manager
+        inventory, but I needed a quick way to check if a specific door should be unlocked.
+    </p>
+    <p>
+    <p><strong>Lambda Expression</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Barriers/Lambda.PNG?raw=true" />
+    </p>
+    <br>
+</div>
+<div id="editors">
+    <h2 style="background-color:#C6C6C6">Custom Editors</h2>
+    <p>
+        One of my biggest learning moments while working towards this release was my discovery of custom editor
+        scripts. I had never used them before, but I found them easy to use while providing huge benefits to the
+        customization and usability of these systems.
+    </p>
+    <h4>Object Instantiation</h4>
+    <p>
+        The most prominent feature I included via custom editor code was the ability to add and remove system objects
+        from the inspector. This added multiple benefits, firstly, no more hunting for the correct prefab when adding
+        segments, nodes, and keys. On top of this, using the inspector callouts to delete objects ensured that they do
+        not persist as null entries in any collections used.
+    </p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Inspectors/ObjectInstant.PNG?raw=true" />
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Inspectors/EeditorOI.PNG?raw=true" />
+
+    <h4>Dynamic Inspector Display</h4>
+    <p>
+        Another helpful feature I was able to achieve via custom editor code was a dynamic display for the platform
+        inspector. Given the many translation options mentioned earlier, I wanted a way for designers to easily
+        differentiate between options that only affect certain movement types. This also allowed me to keep the inspector
+        from becoming bloated with information. I accomplished this via a switch statement that only rendered
+        properties needed for the selected translation state.
+    </p>
+    <p>
+    <p><strong>Translation Type Switch</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Inspectors/TranslationSwitch.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Linear</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Inspectors/Linear.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Curve</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Inspectors/Curve.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Damp</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Inspectors/Damp.PNG?raw=true" />
+    </p>
+    <p>
+    <p><strong>Steering</strong></p>
+    <img src="https://github.com/mcdonaldduncan/SiteCache/blob/main/Inspectors/Steering.PNG?raw=true" />
+    </p>
+
+
+    <br>
+    <br>
+    <br>
+    <a href="./index.html">Back To Top</a>
+    <br>
+    <br>
+    <br>
+</div>
+
+</body>
+
+</html>
